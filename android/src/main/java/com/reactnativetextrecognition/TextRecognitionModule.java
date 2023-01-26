@@ -47,10 +47,16 @@ public class TextRecognitionModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void recognize(String imgPath, @Nullable final ReadableMap options, Promise promise) {
-    Log.v(getName(), "image path: " + imgPath);
 
     try {
-      final Bitmap bitmap = getBitmap(imgPath);
+      Bitmap bitmap = getBitmap(imgPath);
+
+      double left = 5 / 100.0 * bitmap.getWidth();
+      double top = 40 / 100.0 * bitmap.getHeight();
+      double width = 90 / 100.0 * bitmap.getWidth();
+      double height = 10 / 100.0 * bitmap.getHeight();
+
+      bitmap = Bitmap.createBitmap(bitmap, (int) left, (int) top, (int) width, (int) height, null, false);
 
       if (bitmap != null) {
         TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
@@ -86,7 +92,6 @@ public class TextRecognitionModule extends ReactContextBaseJavaModule {
       }
     }
     catch(Exception e) {
-      Log.w(getName(), e.toString(), e);
       promise.reject("something went wrong", e.getMessage());
     }
   }
