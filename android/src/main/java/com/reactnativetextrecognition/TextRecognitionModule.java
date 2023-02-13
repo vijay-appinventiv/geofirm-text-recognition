@@ -54,7 +54,7 @@ public class TextRecognitionModule extends ReactContextBaseJavaModule {
       double left = 2.5 / 100.0 * bitmap.getWidth();
       double top = 40 / 100.0 * bitmap.getHeight();
       double width = 95 / 100.0 * bitmap.getWidth();
-      double height = 10 / 100.0 * bitmap.getHeight();
+      double height = 15 / 100.0 * bitmap.getHeight();
 
       bitmap = Bitmap.createBitmap(bitmap, (int) left, (int) top, (int) width, (int) height, null, false);
 
