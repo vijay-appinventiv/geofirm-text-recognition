@@ -31,7 +31,7 @@ class TextRecognition: NSObject {
             let left:Double = 2.5 / 100.0 * imgWidth
             let top:Double = 40 / 100.0 * imgHeight
             let width:Double = 95 / 100.0 * imgWidth
-            let height:Double = 10 / 100.0 * imgHeight
+            let height:Double = 15 / 100.0 * imgHeight
             
             let cropRect = CGRect(
                 x: left,
